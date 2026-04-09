@@ -1048,45 +1048,50 @@ img {
 
   .carousel-stage {
     display: grid;
+    grid-template-areas:
+      "image"
+      "controls"
+      "copy";
     min-height: 0;
     border-radius: 18px;
+    background: rgba(16, 17, 22, 0.92);
   }
 
   .carousel-stage::after {
-    top: 0;
-    right: 0;
-    bottom: auto;
-    left: 0;
-    height: 18rem;
-    background: linear-gradient(180deg, rgba(8, 8, 10, 0.14), rgba(8, 8, 10, 0.58));
+    display: none;
   }
 
   .carousel-image {
-    height: 18rem;
-    min-height: 18rem;
+    grid-area: image;
+    height: 19rem;
+    min-height: 19rem;
+    border-bottom: 1px solid rgba(240, 223, 196, 0.08);
   }
 
   .carousel-overlay {
     position: relative;
+    grid-area: copy;
     left: auto;
     bottom: auto;
     max-width: none;
     padding: 18px 18px 20px;
     gap: 12px;
-    background: linear-gradient(180deg, rgba(18, 19, 24, 0.42), rgba(18, 19, 24, 0.94));
-    border-top: 1px solid rgba(240, 223, 196, 0.08);
+    background: linear-gradient(180deg, rgba(18, 19, 24, 0.86), rgba(18, 19, 24, 0.98));
   }
 
   .carousel-controls {
-    top: 12px;
-    right: 12px;
-    bottom: auto;
-    gap: 8px;
+    position: relative;
+    grid-area: controls;
+    inset: auto;
+    padding: 12px 12px 0;
+    justify-content: space-between;
+    gap: 10px;
   }
 
   .carousel-arrow {
-    min-width: 72px;
-    min-height: 40px;
+    flex: 1;
+    min-width: 0;
+    min-height: 42px;
     font-size: 0.82rem;
   }
 
@@ -1199,9 +1204,7 @@ img {
   }
 
   .carousel-controls {
-    left: 12px;
-    right: 12px;
-    justify-content: space-between;
+    padding: 12px 10px 0;
   }
 
   .thumb-rail {
