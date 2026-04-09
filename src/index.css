@@ -409,6 +409,7 @@ img {
   background: var(--surface);
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
+  border-radius: 24px;
 }
 
 .fact-card {
@@ -428,6 +429,8 @@ img {
 }
 
 .carousel-panel {
+  display: grid;
+  gap: 18px;
   overflow: hidden;
   padding: 24px;
   background:
@@ -459,8 +462,8 @@ img {
 .carousel-stage {
   position: relative;
   overflow: hidden;
-  margin-top: 16px;
   border: 1px solid rgba(240, 223, 196, 0.08);
+  border-radius: 20px;
   min-height: 42rem;
 }
 
@@ -522,7 +525,6 @@ img {
 .carousel-footer {
   display: grid;
   gap: 14px;
-  margin-top: 16px;
 }
 
 .carousel-progress {
@@ -552,6 +554,7 @@ img {
   gap: 10px;
   padding: 10px;
   border: 1px solid rgba(240, 223, 196, 0.08);
+  border-radius: 18px;
   background: rgba(255, 248, 238, 0.04);
   color: var(--text-soft);
   cursor: pointer;
@@ -560,6 +563,7 @@ img {
 
 .thumb-card img {
   height: 7.6rem;
+  border-radius: 12px;
   object-fit: cover;
 }
 
@@ -799,6 +803,8 @@ img {
 }
 
 .chip-card {
+  display: grid;
+  gap: 16px;
   background: rgba(255, 248, 238, 0.04);
 }
 
@@ -806,7 +812,6 @@ img {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 16px;
 }
 
 .chip-grid span {
