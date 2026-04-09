@@ -886,7 +886,15 @@ img {
 
 @media (max-width: 760px) {
   .container {
-    width: min(1260px, calc(100% - 22px));
+    width: min(1260px, calc(100% - 20px));
+  }
+
+  .section {
+    padding: 28px 0;
+  }
+
+  .hero-section {
+    padding: 18px 0 16px;
   }
 
   .masthead {
@@ -894,7 +902,30 @@ img {
   }
 
   .masthead-row {
-    gap: 14px;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 16px 12px;
+    padding: 14px 0 18px;
+  }
+
+  .brand-lockup,
+  .brand-copy {
+    min-width: 0;
+  }
+
+  .brand-square {
+    width: 44px;
+    height: 44px;
+    font-size: 0.78rem;
+  }
+
+  .brand-copy strong {
+    font-size: 0.98rem;
+  }
+
+  .brand-copy small {
+    font-size: 0.8rem;
+    line-height: 1.35;
   }
 
   .masthead-meta,
@@ -902,27 +933,67 @@ img {
     display: none;
   }
 
+  .masthead-cta {
+    justify-self: end;
+    width: auto;
+    min-width: 126px;
+    min-height: 44px;
+    padding: 0 16px;
+    white-space: nowrap;
+  }
+
+  .hero-grid,
+  .split-layout,
+  .pricing-layout,
+  .experience-layout,
+  .visit-layout,
+  .faq-layout,
+  .cta-panel {
+    gap: 20px;
+  }
+
+  .hero-intro {
+    gap: 18px;
+    padding-right: 0;
+  }
+
   .hero-actions,
   .contact-actions {
     width: 100%;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .hero-actions {
-    margin-top: 28px;
+    margin-top: 16px;
   }
 
   .contact-actions {
-    margin-top: 24px;
+    margin-top: 20px;
   }
 
-  .btn,
-  .masthead-cta {
+  .btn {
     width: 100%;
   }
 
   .hero-intro h1 {
-    font-size: clamp(3.3rem, 16vw, 4.8rem);
+    max-width: 7ch;
+    font-size: clamp(2.9rem, 15vw, 4.2rem);
+    line-height: 0.9;
+  }
+
+  .hero-text,
+  .pricing-intro p,
+  .experience-card p,
+  .panel p,
+  .review-card p,
+  .faq-answer,
+  .cta-copy p,
+  .note-card p,
+  .carousel-overlay p,
+  .faq-copy p {
+    font-size: 0.96rem;
+    line-height: 1.65;
   }
 
   .carousel-overlay h2,
@@ -932,8 +1003,9 @@ img {
   .panel h2,
   .faq-copy h2,
   .cta-copy h2 {
-    font-size: clamp(2.35rem, 11vw, 3.4rem);
-    line-height: 0.95;
+    max-width: 10ch;
+    font-size: clamp(2rem, 10vw, 3rem);
+    line-height: 0.98;
   }
 
   .carousel-panel,
@@ -946,21 +1018,135 @@ img {
   .cta-panel,
   .chip-card,
   .fact-card {
-    padding: 22px;
+    padding: 20px;
+    border-radius: 20px;
   }
 
   .cta-panel {
-    gap: 28px;
+    gap: 24px;
   }
 
   .cta-side {
     max-width: none;
-    padding-top: 10px;
+    gap: 18px;
+    padding-top: 0;
   }
 
-  .carousel-stage,
+  .facts-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .fact-card strong {
+    font-size: 1.16rem;
+  }
+
+  .carousel-panel {
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .carousel-stage {
+    display: grid;
+    min-height: 0;
+    border-radius: 18px;
+  }
+
+  .carousel-stage::after {
+    top: 0;
+    right: 0;
+    bottom: auto;
+    left: 0;
+    height: 18rem;
+    background: linear-gradient(180deg, rgba(8, 8, 10, 0.14), rgba(8, 8, 10, 0.58));
+  }
+
   .carousel-image {
-    min-height: 28rem;
+    height: 18rem;
+    min-height: 18rem;
+  }
+
+  .carousel-overlay {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    max-width: none;
+    padding: 18px 18px 20px;
+    gap: 12px;
+    background: linear-gradient(180deg, rgba(18, 19, 24, 0.42), rgba(18, 19, 24, 0.94));
+    border-top: 1px solid rgba(240, 223, 196, 0.08);
+  }
+
+  .carousel-controls {
+    top: 12px;
+    right: 12px;
+    bottom: auto;
+    gap: 8px;
+  }
+
+  .carousel-arrow {
+    min-width: 72px;
+    min-height: 40px;
+    font-size: 0.82rem;
+  }
+
+  .carousel-footer {
+    gap: 12px;
+  }
+
+  .progress-dot {
+    max-width: none;
+    flex: 1;
+  }
+
+  .thumb-rail {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(148px, 46vw);
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+
+  .thumb-rail::-webkit-scrollbar {
+    display: none;
+  }
+
+  .thumb-card {
+    gap: 8px;
+    padding: 8px;
+    scroll-snap-align: start;
+  }
+
+  .thumb-card img {
+    height: 5.6rem;
+  }
+
+  .thumb-card span {
+    font-size: 0.82rem;
+  }
+
+  .note-card h3,
+  .pricing-card h3,
+  .experience-card h3 {
+    font-size: 1.3rem;
+    line-height: 1.12;
+  }
+
+  .pricing-card strong {
+    padding: 8px 14px;
+    font-size: 1.12rem;
+  }
+
+  .experience-layout {
+    padding: 20px;
+  }
+
+  .process-step {
+    min-width: 46px;
+    min-height: 46px;
   }
 
   .carousel-controls,
@@ -971,8 +1157,22 @@ img {
     align-items: flex-start;
   }
 
-  .facts-grid {
-    grid-template-columns: 1fr;
+  .faq-trigger {
+    padding: 18px;
+  }
+
+  .faq-answer {
+    padding: 0 18px 18px;
+  }
+
+  .chip-grid {
+    gap: 8px;
+  }
+
+  .chip-grid span {
+    min-height: 36px;
+    padding: 0 12px;
+    font-size: 0.84rem;
   }
 
   .mobile-bookbar {
@@ -981,6 +1181,31 @@ img {
 
   .site-footer {
     padding-bottom: 92px;
+  }
+}
+
+@media (max-width: 540px) {
+  .masthead-row {
+    grid-template-columns: 1fr;
+  }
+
+  .masthead-cta {
+    justify-self: stretch;
+  }
+
+  .hero-actions,
+  .contact-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel-controls {
+    left: 12px;
+    right: 12px;
+    justify-content: space-between;
+  }
+
+  .thumb-rail {
+    grid-auto-columns: minmax(150px, 68vw);
   }
 }
 
