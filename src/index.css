@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap");
 
 :root {
   color-scheme: dark;
@@ -272,7 +272,7 @@ img {
 }
 
 .hero-grid {
-  grid-template-columns: minmax(320px, 0.36fr) minmax(0, 0.64fr);
+  grid-template-columns: minmax(340px, 0.42fr) minmax(0, 0.58fr);
 }
 
 .hero-intro {
@@ -339,15 +339,15 @@ img {
 .pricing-card h3,
 .experience-card h3 {
   margin: 0;
-  font-family: "Instrument Serif", Georgia, serif;
-  font-weight: 400;
-  letter-spacing: -0.04em;
+  font-family: "Sora", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.05em;
 }
 
 .hero-intro h1 {
   max-width: 9ch;
-  font-size: clamp(4.3rem, 8vw, 7.1rem);
-  line-height: 0.88;
+  font-size: clamp(3rem, 5.2vw, 4.7rem);
+  line-height: 0.96;
 }
 
 .hero-intro p,
@@ -498,8 +498,8 @@ img {
 .faq-copy h2,
 .cta-copy h2 {
   max-width: 11ch;
-  font-size: clamp(2.15rem, 3.6vw, 3.85rem);
-  line-height: 0.96;
+  font-size: clamp(1.7rem, 2.5vw, 2.55rem);
+  line-height: 1.06;
 }
 
 .carousel-overlay p {
@@ -605,10 +605,16 @@ img {
 }
 
 .notes-grid,
-.pricing-grid,
 .experience-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
   align-items: stretch;
 }
@@ -720,6 +726,10 @@ img {
   margin-top: 0;
 }
 
+.visit-title {
+  max-width: 15ch !important;
+}
+
 .review-top span {
   color: var(--text-muted);
 }
@@ -825,6 +835,8 @@ img {
   background: rgba(255, 248, 238, 0.04);
   font-size: 0.92rem;
   font-weight: 700;
+  text-align: center;
+  white-space: normal;
 }
 
 .site-footer {
@@ -866,7 +878,6 @@ img {
   .faq-layout,
   .cta-panel,
   .notes-grid,
-  .pricing-grid,
   .experience-grid,
   .thumb-rail {
     grid-template-columns: 1fr;
@@ -881,6 +892,10 @@ img {
   .experience-copy h2,
   .section-head-narrow {
     max-width: 100%;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -952,6 +967,10 @@ img {
     gap: 20px;
   }
 
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
   .hero-intro {
     gap: 18px;
     padding-right: 0;
@@ -978,8 +997,8 @@ img {
 
   .hero-intro h1 {
     max-width: 7ch;
-    font-size: clamp(2.9rem, 15vw, 4.2rem);
-    line-height: 0.9;
+    font-size: clamp(2.45rem, 11vw, 3.5rem);
+    line-height: 0.98;
   }
 
   .hero-text,
@@ -1004,8 +1023,8 @@ img {
   .faq-copy h2,
   .cta-copy h2 {
     max-width: 10ch;
-    font-size: clamp(2rem, 10vw, 3rem);
-    line-height: 0.98;
+    font-size: clamp(1.7rem, 8vw, 2.35rem);
+    line-height: 1.05;
   }
 
   .carousel-panel,

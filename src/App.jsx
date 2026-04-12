@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import {
+  contactHighlights,
   experienceSteps,
   faqs,
   galleryShots,
   hours,
   quickFacts,
-  reviews,
   services,
   studioNotes,
 } from "./siteContent";
@@ -15,9 +15,12 @@ function App() {
   const [activeSlide, setActiveSlide] = useState(0);
   const year = new Date().getFullYear();
   const activeShot = galleryShots[activeSlide];
-  const phoneLink = "tel:+12125550147";
-  const mapsLink = "https://maps.google.com/?q=Lower+Manhattan,+New+York,+NY";
-  const phoneLabel = "+1 (212) 555-0147";
+  const phoneLink = "tel:+16464540300";
+  const mapsLink =
+    "https://www.google.com/maps/search/?api=1&query=224+E+116th+St,+New+York,+NY+10029";
+  const phoneLabel = "(646) 454-0300";
+  const shopName = "MQ Barber Shop";
+  const shopAddress = "224 E 116th St, New York, NY 10029";
 
   useEffect(() => {
     const timer = window.setInterval(() => {
@@ -42,18 +45,18 @@ function App() {
 
       <header className="masthead">
         <div className="container masthead-row">
-          <a className="brand-lockup" href="#top" aria-label="Atelier Nine home">
-            <span className="brand-square">A9</span>
+          <a className="brand-lockup" href="#top" aria-label={`${shopName} home`}>
+            <span className="brand-square">MQ</span>
             <span className="brand-copy">
-              <strong>Atelier Nine</strong>
-              <small>Premium barber studio demo</small>
+              <strong>{shopName}</strong>
+              <small>Barber shop in East Harlem</small>
             </span>
           </a>
 
           <div className="masthead-meta">
-            <span>Lower Manhattan</span>
-            <span>Open 7 days</span>
-            <span>By appointment</span>
+            <span>East Harlem</span>
+            <span>Open daily</span>
+            <span>8 AM - 11 PM</span>
           </div>
 
           <nav className="masthead-nav" aria-label="Primary">
@@ -62,8 +65,8 @@ function App() {
             <a href="#visit">Contact</a>
           </nav>
 
-          <a className="masthead-cta" href="#book">
-            Book now
+          <a className="masthead-cta" href={phoneLink}>
+            Call shop
           </a>
         </div>
       </header>
@@ -72,20 +75,20 @@ function App() {
         <section className="hero-section">
           <div className="container hero-grid">
             <div className="hero-intro">
-              <span className="eyebrow">Premium barber studio</span>
-              <h1>A sharp, modern barbershop site built to feel ready for a real client.</h1>
+              <span className="eyebrow">{shopName}</span>
+              <h1>Sharp cuts and beard work in East Harlem.</h1>
               <p className="hero-text">
-                This demo shows how a premium neighborhood shop can present services,
-                atmosphere, pricing, and booking clearly without leaning on generic salon copy
-                or visual filler.
+                MQ Barber Shop is open daily from 8:00 AM to 11:00 PM at 224 E 116th St,
+                offering clean cuts, beard work, and a simple neighborhood shop experience
+                clients can count on.
               </p>
 
               <div className="hero-actions">
                 <a className="btn btn-primary" href={phoneLink}>
-                  Book a cut
+                  Call now
                 </a>
-                <a className="btn btn-secondary" href="#carousel">
-                  View gallery
+                <a className="btn btn-secondary" href={mapsLink} target="_blank" rel="noreferrer">
+                  Get directions
                 </a>
               </div>
 
@@ -99,9 +102,9 @@ function App() {
               </div>
             </div>
 
-            <section className="carousel-panel" id="carousel" aria-label="Barbershop lookbook carousel">
+            <section className="carousel-panel" id="carousel" aria-label="MQ Barber Shop gallery">
               <div className="carousel-topline">
-                <span className="carousel-kicker">Gallery</span>
+                <span className="carousel-kicker">Inside MQ</span>
                 <div className="carousel-counter">
                   <span>{String(activeSlide + 1).padStart(2, "0")}</span>
                   <span>/</span>
@@ -159,8 +162,8 @@ function App() {
         <section className="section section-notes">
           <div className="container split-layout">
             <div className="section-head section-head-narrow">
-              <span className="eyebrow">What the site communicates</span>
-              <h2>Clear positioning, cleaner service presentation, and a stronger first impression.</h2>
+              <span className="eyebrow">Why clients choose MQ</span>
+              <h2>Built for everyday cuts, beard work, and flexible daily hours.</h2>
             </div>
 
             <div className="notes-grid">
@@ -178,20 +181,19 @@ function App() {
         <section className="section" id="services">
           <div className="container pricing-layout">
             <div className="pricing-intro">
-              <span className="eyebrow">Services</span>
-              <h2>Simple service tiers that feel realistic for a premium local shop.</h2>
+              <span className="eyebrow">Current services</span>
+              <h2>A straightforward service menu clients can scan fast.</h2>
               <p>
-                The goal here is clear value, not inflated pricing. That makes the demo easier
-                to adapt for real barber brands while still feeling polished and premium.
+                The current draft menu covers everyday cuts, beard work, shaves, and finishing
+                details. Call the shop directly to confirm current pricing or today's availability.
               </p>
             </div>
 
-            <div className="pricing-grid">
+            <div className="services-grid">
               {services.map((service) => (
                 <article className="pricing-card" key={service.name}>
                   <span className="card-tag">{service.note}</span>
                   <h3>{service.name}</h3>
-                  <strong>{service.price}</strong>
                   <p>{service.text}</p>
                 </article>
               ))}
@@ -202,8 +204,8 @@ function App() {
         <section className="section section-dark">
           <div className="container experience-layout">
             <div className="experience-copy">
-              <span className="eyebrow eyebrow-dark">Experience flow</span>
-              <h2>A short service story that explains what the client experience actually feels like.</h2>
+              <span className="eyebrow eyebrow-dark">What to expect</span>
+              <h2>Easy to understand, easy to reach, and built around the services people need.</h2>
             </div>
 
             <div className="experience-grid">
@@ -221,29 +223,32 @@ function App() {
         <section className="section section-visit" id="visit">
           <div className="container visit-layout">
             <article className="panel panel-soft">
-              <span className="eyebrow">Client proof</span>
-              <h2>Social proof and practical details that help the site feel ready to launch.</h2>
+              <span className="eyebrow">Need the basics fast?</span>
+              <h2>Phone, location, and hours stay clear from top to bottom.</h2>
+              <p>
+                New clients should not have to hunt for the essentials. The site keeps the key
+                details visible so people can call, get directions, and plan their visit quickly.
+              </p>
 
               <div className="reviews-list">
-                {reviews.map((review) => (
-                  <article className="review-card" key={review.name}>
+                {contactHighlights.map((item) => (
+                  <article className="review-card" key={item.title}>
                     <div className="review-top">
-                      <strong>{review.name}</strong>
-                      <span>{review.role}</span>
+                      <strong>{item.title}</strong>
+                      <span>{item.subtitle}</span>
                     </div>
-                    <div className="review-stars">5-star review</div>
-                    <p>{review.text}</p>
+                    <p>{item.text}</p>
                   </article>
                 ))}
               </div>
             </article>
 
             <article className="panel panel-visit">
-              <span className="eyebrow">Visit the studio</span>
-              <h2>Lower Manhattan, New York, NY</h2>
+              <span className="eyebrow">Visit MQ Barber Shop</span>
+              <h2 className="visit-title">{shopAddress}</h2>
               <p>
-                The contact section is intentionally grounded and useful, so the demo still
-                reads like a real business website instead of only a portfolio concept.
+                Call before you come in if you want to confirm today's availability, ask about a
+                specific service, or check current pricing with the shop directly.
               </p>
 
               <div className="hours-card">
@@ -260,7 +265,7 @@ function App() {
                   Call {phoneLabel}
                 </a>
                 <a className="btn btn-secondary" href={mapsLink} target="_blank" rel="noreferrer">
-                  Open map
+                  Get directions
                 </a>
               </div>
             </article>
@@ -271,7 +276,7 @@ function App() {
           <div className="container faq-layout">
             <div className="faq-copy">
               <span className="eyebrow">FAQ</span>
-              <h2>Useful answers that make the demo feel complete without adding filler.</h2>
+              <h2>Quick answers before clients call or stop by.</h2>
             </div>
 
             <div className="faq-list">
@@ -301,25 +306,28 @@ function App() {
           <div className="container">
             <div className="cta-panel" id="book">
               <div className="cta-copy">
-                <span className="eyebrow">Final CTA</span>
-                <h2>A polished barber studio demo that is ready to show to clients.</h2>
+                <span className="eyebrow">Contact MQ</span>
+                <h2>Need a haircut, beard trim, line up, or shave?</h2>
                 <p>
-                  Clear services, strong structure, responsive layout, and enough flexibility to
-                  swap in real branding, pricing, testimonials, and location details quickly.
+                  Call MQ Barber Shop to check today's availability, ask about the current service
+                  menu, or get directions before you head over.
                 </p>
               </div>
 
               <div className="cta-side">
                 <a className="btn btn-primary btn-large" href={phoneLink}>
-                  Reserve appointment
+                  Call the shop
+                </a>
+                <a className="btn btn-secondary" href={mapsLink} target="_blank" rel="noreferrer">
+                  Get directions
                 </a>
                 <div className="chip-card">
-                  <span className="payment-label">Included</span>
+                  <span className="payment-label">Quick details</span>
                   <div className="chip-grid">
-                    <span>Full carousel</span>
-                    <span>New masthead</span>
-                    <span>Different page rhythm</span>
-                    <span>Lower pricing</span>
+                    <span>Open daily</span>
+                    <span>8 AM - 11 PM</span>
+                    <span>224 E 116th St</span>
+                    <span>{phoneLabel}</span>
                   </div>
                 </div>
               </div>
@@ -330,18 +338,18 @@ function App() {
 
       <footer className="site-footer">
         <div className="container footer-row">
-          <div>&copy; {year} Atelier Nine</div>
+          <div>&copy; {year} {shopName}</div>
           <div className="footer-meta">
-            <span>Premium barbershop demo</span>
+            <span>{shopAddress}</span>
             <span>{phoneLabel}</span>
-            <span>React and Vite landing page concept</span>
+            <span>Open daily 8:00 AM - 11:00 PM</span>
           </div>
         </div>
       </footer>
 
       <div className="mobile-bookbar">
         <a className="btn btn-primary" href={phoneLink}>
-          Book now
+          Call shop
         </a>
       </div>
     </div>
