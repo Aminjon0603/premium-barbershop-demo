@@ -69,6 +69,11 @@ function App() {
             Call shop
           </a>
         </div>
+        <div className="container mobile-quicknav" aria-label="Mobile shortcuts">
+          <a className="mobile-quicknav-link" href="#services">
+            Services
+          </a>
+        </div>
       </header>
 
       <main id="top">
