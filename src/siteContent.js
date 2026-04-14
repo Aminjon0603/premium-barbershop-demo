@@ -32,44 +32,75 @@ export const quickFacts = [
   { value: "Open daily", label: "8:00 AM - 11:00 PM" },
   { value: "East Harlem", label: "224 E 116th St" },
   { value: "Call the shop", label: "(646) 454-0300" },
-  { value: "Full menu", label: "Hair, beard, shave, facial" },
+  { value: "Full menu", label: "Cuts, shave, color, relaxer" },
 ];
 
 export const services = [
   {
     name: "Haircut",
+    price: "$30",
     note: "Core service",
-    text: "A clean everyday cut with shape, cleanup, and finish work tailored to the style the client wants.",
+    text: "A clean everyday haircut for clients who want a sharp finish and a straightforward shop visit.",
   },
   {
-    name: "Kids Haircut",
-    note: "Family service",
-    text: "A straightforward haircut option for younger clients who need a neat, comfortable, and well-finished service.",
+    name: "Haircut + Shave",
+    price: "$40",
+    note: "Full service",
+    text: "A combined haircut and shave service for clients who want the full cleanup in one appointment.",
   },
   {
-    name: "Beard Trim",
-    note: "Beard care",
-    text: "Beard cleanup, edge refinement, and shaping that helps the full look stay balanced and sharp.",
+    name: "Shave",
+    price: "$15",
+    note: "Quick service",
+    text: "A simple shaving service for clients who want a cleaner finish without booking a full haircut.",
   },
   {
-    name: "Haircut + Beard",
-    note: "Most requested",
-    text: "A full service for clients who want both the haircut and beard line to look finished in one visit.",
+    name: "Shape Up",
+    price: "$15",
+    note: "Line cleanup",
+    text: "A detail-focused edge cleanup for clients who want to keep the hairline and outline sharp.",
   },
   {
-    name: "Line Up / Shape Up",
-    note: "Quick refresh",
-    text: "Detail-focused edge work for clients who want a sharper outline between full haircut appointments.",
+    name: "Eyebrows",
+    price: "$10",
+    note: "Detail service",
+    text: "A quick eyebrow cleanup that can be booked on its own or added to another service.",
   },
   {
-    name: "Razor Shave",
-    note: "Classic finish",
-    text: "A cleaner shaving service for clients who want a closer finish and a more polished final result.",
+    name: "Hair Color",
+    price: "$60-$80",
+    note: "Color service",
+    text: "Hair color service with pricing that may vary by hair and the amount of work needed.",
   },
   {
-    name: "Facial / Eyebrows",
-    note: "Extra detail",
-    text: "Light finishing services that help round out the appointment and clean up the overall look.",
+    name: "Relaxer",
+    price: "From $50",
+    note: "Texture service",
+    text: "Relaxer service for clients looking for a smoother result, with final pricing depending on hair.",
+  },
+  {
+    name: "Hair Wash",
+    price: "$5",
+    note: "Add-on",
+    text: "A quick wash option that can be added to the visit when a client wants a cleaner finish.",
+  },
+  {
+    name: "Wash + Haircut",
+    price: "$50-$55",
+    note: "Combo service",
+    text: "A combined wash and haircut option for clients who want everything done in one service.",
+  },
+  {
+    name: "Permanent",
+    price: "$60-$90",
+    note: "Chemical service",
+    text: "Permanent service with a price range that depends on hair and the amount of work required.",
+  },
+  {
+    name: "Highlight",
+    price: "$100-$150",
+    note: "Specialty color",
+    text: "Highlight service with pricing that varies depending on hair length, hair type, and the final look.",
   },
 ];
 
@@ -80,7 +111,7 @@ export const studioNotes = [
   },
   {
     title: "A clear service menu",
-    text: "Haircuts, kids cuts, beard work, shaves, and finishing details sit on one straightforward menu without clutter.",
+    text: "Haircuts, shaves, shape ups, color work, and chemical services sit on one straightforward menu without clutter.",
   },
   {
     title: "Easy to reach",
@@ -92,7 +123,7 @@ export const experienceSteps = [
   {
     step: "01",
     title: "Choose the service you need",
-    text: "The menu keeps the main options simple so clients can quickly decide between a cut, beard work, a shave, or a combo visit.",
+    text: "The menu keeps the main options simple so clients can quickly decide between a cut, shave, shape up, color service, or combo visit.",
   },
   {
     step: "02",
@@ -148,7 +179,12 @@ export const faqs = [
   {
     question: "What services are currently listed?",
     answer:
-      "The current draft menu includes Haircut, Kids Haircut, Beard Trim, Haircut + Beard, Line Up / Shape Up, Razor Shave, and Facial / Eyebrows.",
+      "The current menu includes Haircut $30, Haircut + Shave $40, Shave $15, Shape Up $15, Eyebrows $10, Hair Color $60-$80, Relaxer from $50, Hair Wash $5, Wash + Haircut $50-$55, Permanent $60-$90, and Highlight $100-$150.",
+  },
+  {
+    question: "Do all color and chemical services have a fixed price?",
+    answer:
+      "Not always. Hair Color, Relaxer, Permanent, and Highlight services can vary depending on hair, so it is best to call the shop for confirmation before you come in.",
   },
   {
     question: "How do I confirm current pricing or availability?",

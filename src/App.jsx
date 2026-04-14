@@ -81,10 +81,10 @@ function App() {
           <div className="container hero-grid">
             <div className="hero-intro">
               <span className="eyebrow">{shopName}</span>
-              <h1>Sharp cuts and beard work in East Harlem.</h1>
+              <h1>Haircuts, shaves, and color services in East Harlem.</h1>
               <p className="hero-text">
                 MQ Barber Shop is open daily from 8:00 AM to 11:00 PM at 224 E 116th St,
-                offering clean cuts, beard work, and a simple neighborhood shop experience
+                offering haircuts, shaves, shape ups, and color services in a simple neighborhood shop
                 clients can count on.
               </p>
 
@@ -168,7 +168,7 @@ function App() {
           <div className="container split-layout">
             <div className="section-head section-head-narrow">
               <span className="eyebrow">Why clients choose MQ</span>
-              <h2>Built for everyday cuts, beard work, and flexible daily hours.</h2>
+              <h2>Built for everyday cuts, shaves, color services, and flexible daily hours.</h2>
             </div>
 
             <div className="notes-grid">
@@ -189,8 +189,8 @@ function App() {
               <span className="eyebrow">Current services</span>
               <h2>A straightforward service menu clients can scan fast.</h2>
               <p>
-                The current draft menu covers everyday cuts, beard work, shaves, and finishing
-                details. Call the shop directly to confirm current pricing or today's availability.
+                Prices below are based on the current shop board. Color and chemical services may
+                vary depending on hair, so call the shop to confirm today's pricing or availability.
               </p>
             </div>
 
@@ -199,6 +199,7 @@ function App() {
                 <article className="pricing-card" key={service.name}>
                   <span className="card-tag">{service.note}</span>
                   <h3>{service.name}</h3>
+                  <strong>{service.price}</strong>
                   <p>{service.text}</p>
                 </article>
               ))}
@@ -312,7 +313,7 @@ function App() {
             <div className="cta-panel" id="book">
               <div className="cta-copy">
                 <span className="eyebrow">Contact MQ</span>
-                <h2>Need a haircut, beard trim, line up, or shave?</h2>
+                <h2>Need a haircut, shave, shape up, or color service?</h2>
                 <p>
                   Call MQ Barber Shop to check today's availability, ask about the current service
                   menu, or get directions before you head over.
