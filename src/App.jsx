@@ -1,42 +1,21 @@
-import { useEffect, useState } from "react";
-import {
-  contactHighlights,
-  experienceSteps,
-  faqs,
-  galleryShots,
-  hours,
-  quickFacts,
-  services,
-  studioNotes,
-} from "./siteContent";
+import { useState } from "react";
+import { getSiteContent } from "./siteContent";
 
-function App() {
+function App({ locale = "en" }) {
   const [openFaq, setOpenFaq] = useState(0);
-  const [activeSlide, setActiveSlide] = useState(0);
   const year = new Date().getFullYear();
-  const activeShot = galleryShots[activeSlide];
+  const content = getSiteContent(locale);
   const phoneLink = "tel:+16464540300";
   const mapsLink =
     "https://www.google.com/maps/search/?api=1&query=224+E+116th+St,+New+York,+NY+10029";
   const phoneLabel = "(646) 454-0300";
   const shopName = "MQ Barber Shop";
   const shopAddress = "224 E 116th St, New York, NY 10029";
-
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setActiveSlide((current) => (current + 1) % galleryShots.length);
-    }, 5500);
-
-    return () => window.clearInterval(timer);
-  }, []);
-
-  const goPrev = () => {
-    setActiveSlide((current) => (current - 1 + galleryShots.length) % galleryShots.length);
-  };
-
-  const goNext = () => {
-    setActiveSlide((current) => (current + 1) % galleryShots.length);
-  };
+  const languageSwitchHref = locale === "en" ? "/es/" : "/";
+  const groupedServices = content.serviceGroups.map((group) => ({
+    ...group,
+    items: content.services.filter((service) => service.group === group.id),
+  }));
 
   return (
     <div className="barber-page">
@@ -49,29 +28,39 @@ function App() {
             <span className="brand-square">MQ</span>
             <span className="brand-copy">
               <strong>{shopName}</strong>
-              <small>Barber shop in East Harlem</small>
+              <small>{content.brandTagline}</small>
             </span>
           </a>
 
           <div className="masthead-meta">
-            <span>East Harlem</span>
-            <span>Open daily</span>
-            <span>8 AM - 11 PM</span>
+            {content.headerMeta.map((item) => (
+              <span key={item}>{item}</span>
+            ))}
           </div>
 
           <nav className="masthead-nav" aria-label="Primary">
-            <a href="#carousel">Gallery</a>
-            <a href="#services">Services</a>
-            <a href="#visit">Contact</a>
+            {content.nav.map((item) => (
+              <a key={item.href} href={item.href}>
+                {item.label}
+              </a>
+            ))}
           </nav>
 
-          <a className="masthead-cta" href={phoneLink}>
-            Call shop
-          </a>
+          <div className="masthead-actions">
+            <a className="language-toggle" href={languageSwitchHref}>
+              {content.languageSwitchLabel}
+            </a>
+            <a className="masthead-cta" href={phoneLink}>
+              {content.hero.primaryCta}
+            </a>
+          </div>
         </div>
         <div className="container mobile-quicknav" aria-label="Mobile shortcuts">
           <a className="mobile-quicknav-link" href="#services">
-            Services
+            {content.mobileServicesLabel}
+          </a>
+          <a className="mobile-quicknav-link mobile-quicknav-link-secondary" href={languageSwitchHref}>
+            {content.languageSwitchLabel}
           </a>
         </div>
       </header>
@@ -80,25 +69,21 @@ function App() {
         <section className="hero-section">
           <div className="container hero-grid">
             <div className="hero-intro">
-              <span className="eyebrow">{shopName}</span>
-              <h1>Haircuts, shaves, and color services in East Harlem.</h1>
-              <p className="hero-text">
-                MQ Barber Shop is open daily from 8:00 AM to 11:00 PM at 224 E 116th St,
-                offering haircuts, shaves, shape ups, and color services in a simple neighborhood shop
-                clients can count on.
-              </p>
+              <span className="eyebrow">{content.hero.eyebrow}</span>
+              <h1>{content.hero.title}</h1>
+              <p className="hero-text">{content.hero.text}</p>
 
               <div className="hero-actions">
                 <a className="btn btn-primary" href={phoneLink}>
-                  Call now
+                  {content.hero.primaryCta}
                 </a>
                 <a className="btn btn-secondary" href={mapsLink} target="_blank" rel="noreferrer">
-                  Get directions
+                  {content.hero.secondaryCta}
                 </a>
               </div>
 
               <div className="facts-grid">
-                {quickFacts.map((item) => (
+                {content.quickFacts.map((item) => (
                   <article className="fact-card" key={item.label}>
                     <strong>{item.value}</strong>
                     <span>{item.label}</span>
@@ -107,58 +92,31 @@ function App() {
               </div>
             </div>
 
-            <section className="carousel-panel" id="carousel" aria-label="MQ Barber Shop gallery">
-              <div className="carousel-topline">
-                <span className="carousel-kicker">Inside MQ</span>
-                <div className="carousel-counter">
-                  <span>{String(activeSlide + 1).padStart(2, "0")}</span>
-                  <span>/</span>
-                  <span>{String(galleryShots.length).padStart(2, "0")}</span>
+            <section className="showcase-panel" id="photos" aria-label={`${shopName} photos`}>
+              <article className="showcase-main">
+                <img
+                  className="showcase-main-image"
+                  src={content.photos.main.image}
+                  alt={content.photos.main.alt}
+                />
+                <div className="showcase-overlay">
+                  <span className="note-tag">{content.photos.main.kicker}</span>
+                  <h2>{content.photos.main.title}</h2>
+                  <p>{content.photos.main.text}</p>
                 </div>
-              </div>
+              </article>
 
-              <div className="carousel-stage">
-                <img className="carousel-image" src={activeShot.image} alt={activeShot.alt} />
-                <div className="carousel-overlay">
-                  <span className="note-tag">{activeShot.kicker}</span>
-                  <h2>{activeShot.title}</h2>
-                  <p>{activeShot.text}</p>
-                </div>
-
-                <div className="carousel-controls">
-                  <button type="button" className="carousel-arrow" onClick={goPrev} aria-label="Previous slide">
-                    Prev
-                  </button>
-                  <button type="button" className="carousel-arrow" onClick={goNext} aria-label="Next slide">
-                    Next
-                  </button>
-                </div>
-              </div>
-
-              <div className="carousel-footer">
-                <div className="carousel-progress" aria-hidden="true">
-                  {galleryShots.map((shot, index) => (
-                    <span
-                      key={shot.id}
-                      className={`progress-dot${index === activeSlide ? " is-active" : ""}`}
-                    />
-                  ))}
-                </div>
-
-                <div className="thumb-rail">
-                  {galleryShots.map((shot, index) => (
-                    <button
-                      key={shot.id}
-                      type="button"
-                      className={`thumb-card${index === activeSlide ? " is-active" : ""}`}
-                      onClick={() => setActiveSlide(index)}
-                      aria-pressed={index === activeSlide}
-                    >
-                      <img src={shot.image} alt={shot.alt} />
-                      <span>{shot.kicker}</span>
-                    </button>
-                  ))}
-                </div>
+              <div className="showcase-stack">
+                {content.photos.supporting.map((item) => (
+                  <article className="photo-card" key={item.id}>
+                    <img className="photo-card-image" src={item.image} alt={item.alt} />
+                    <div className="photo-card-copy">
+                      <span className="card-tag">{item.kicker}</span>
+                      <h3>{item.title}</h3>
+                      <p>{item.text}</p>
+                    </div>
+                  </article>
+                ))}
               </div>
             </section>
           </div>
@@ -167,14 +125,14 @@ function App() {
         <section className="section section-notes">
           <div className="container split-layout">
             <div className="section-head section-head-narrow">
-              <span className="eyebrow">Why clients choose MQ</span>
-              <h2>Built for everyday cuts, shaves, color services, and flexible daily hours.</h2>
+              <span className="eyebrow">{content.notesSection.eyebrow}</span>
+              <h2>{content.notesSection.title}</h2>
             </div>
 
             <div className="notes-grid">
-              {studioNotes.map((item) => (
+              {content.studioNotes.map((item) => (
                 <article className="note-card" key={item.title}>
-                  <span className="card-tag">Studio note</span>
+                  <span className="card-tag">{content.notesSection.cardLabel}</span>
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
                 </article>
@@ -186,23 +144,44 @@ function App() {
         <section className="section" id="services">
           <div className="container pricing-layout">
             <div className="pricing-intro">
-              <span className="eyebrow">Current services</span>
-              <h2>A straightforward service menu clients can scan fast.</h2>
-              <p>
-                Prices below are based on the current shop board. Color and chemical services may
-                vary depending on hair, so call the shop to confirm today's pricing or availability.
-              </p>
+              <span className="eyebrow">{content.servicesSection.eyebrow}</span>
+              <h2>{content.servicesSection.title}</h2>
+              <p>{content.servicesSection.text}</p>
             </div>
 
-            <div className="services-grid">
-              {services.map((service) => (
-                <article className="pricing-card" key={service.name}>
-                  <span className="card-tag">{service.note}</span>
-                  <h3>{service.name}</h3>
-                  <strong>{service.price}</strong>
-                  <p>{service.text}</p>
-                </article>
-              ))}
+            <div className="service-board-stack">
+              <div className="service-board">
+                {groupedServices.map((group) => (
+                  <article className="menu-group" key={group.id}>
+                    <div className="menu-group-head">
+                      <span className="card-tag">{group.title}</span>
+                    </div>
+
+                    <div className="menu-list">
+                      {group.items.map((service) => (
+                        <div className="menu-row" key={service.name}>
+                          <div className="menu-copy">
+                            <strong>{service.name}</strong>
+                            <span>{service.note}</span>
+                          </div>
+                          <span className="menu-price">{service.price}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </article>
+                ))}
+              </div>
+
+              <article className="service-note-card">
+                <span className="eyebrow">{content.serviceNotice.eyebrow}</span>
+                <h3>{content.serviceNotice.title}</h3>
+                <p>{content.serviceNotice.text}</p>
+                <div className="service-note-list">
+                  {content.serviceNotice.items.map((item) => (
+                    <span key={item}>{item}</span>
+                  ))}
+                </div>
+              </article>
             </div>
           </div>
         </section>
@@ -210,12 +189,12 @@ function App() {
         <section className="section section-dark">
           <div className="container experience-layout">
             <div className="experience-copy">
-              <span className="eyebrow eyebrow-dark">What to expect</span>
-              <h2>Easy to understand, easy to reach, and built around the services people need.</h2>
+              <span className="eyebrow eyebrow-dark">{content.experienceSection.eyebrow}</span>
+              <h2>{content.experienceSection.title}</h2>
             </div>
 
             <div className="experience-grid">
-              {experienceSteps.map((item) => (
+              {content.experienceSteps.map((item) => (
                 <article className="experience-card" key={item.step}>
                   <span className="process-step">{item.step}</span>
                   <h3>{item.title}</h3>
@@ -229,15 +208,12 @@ function App() {
         <section className="section section-visit" id="visit">
           <div className="container visit-layout">
             <article className="panel panel-soft">
-              <span className="eyebrow">Need the basics fast?</span>
-              <h2>Phone, location, and hours stay clear from top to bottom.</h2>
-              <p>
-                New clients should not have to hunt for the essentials. The site keeps the key
-                details visible so people can call, get directions, and plan their visit quickly.
-              </p>
+              <span className="eyebrow">{content.visitSection.leftEyebrow}</span>
+              <h2>{content.visitSection.leftTitle}</h2>
+              <p>{content.visitSection.leftText}</p>
 
               <div className="reviews-list">
-                {contactHighlights.map((item) => (
+                {content.contactHighlights.map((item) => (
                   <article className="review-card" key={item.title}>
                     <div className="review-top">
                       <strong>{item.title}</strong>
@@ -250,15 +226,12 @@ function App() {
             </article>
 
             <article className="panel panel-visit">
-              <span className="eyebrow">Visit MQ Barber Shop</span>
-              <h2 className="visit-title">{shopAddress}</h2>
-              <p>
-                Call before you come in if you want to confirm today's availability, ask about a
-                specific service, or check current pricing with the shop directly.
-              </p>
+              <span className="eyebrow">{content.visitSection.rightEyebrow}</span>
+              <h2 className="visit-title">{content.visitSection.rightTitle}</h2>
+              <p>{content.visitSection.rightText}</p>
 
               <div className="hours-card">
-                {hours.map(([day, time]) => (
+                {content.hours.map(([day, time]) => (
                   <div className="hours-row" key={day}>
                     <span>{day}</span>
                     <span>{time}</span>
@@ -268,10 +241,10 @@ function App() {
 
               <div className="contact-actions">
                 <a className="btn btn-primary" href={phoneLink}>
-                  Call {phoneLabel}
+                  {content.visitSection.callButton}
                 </a>
                 <a className="btn btn-secondary" href={mapsLink} target="_blank" rel="noreferrer">
-                  Get directions
+                  {content.visitSection.directionsButton}
                 </a>
               </div>
             </article>
@@ -281,12 +254,12 @@ function App() {
         <section className="section">
           <div className="container faq-layout">
             <div className="faq-copy">
-              <span className="eyebrow">FAQ</span>
-              <h2>Quick answers before clients call or stop by.</h2>
+              <span className="eyebrow">{content.faqSection.eyebrow}</span>
+              <h2>{content.faqSection.title}</h2>
             </div>
 
             <div className="faq-list">
-              {faqs.map((item, index) => {
+              {content.faqs.map((item, index) => {
                 const isOpen = openFaq === index;
 
                 return (
@@ -312,28 +285,24 @@ function App() {
           <div className="container">
             <div className="cta-panel" id="book">
               <div className="cta-copy">
-                <span className="eyebrow">Contact MQ</span>
-                <h2>Need a haircut, shave, shape up, or color service?</h2>
-                <p>
-                  Call MQ Barber Shop to check today's availability, ask about the current service
-                  menu, or get directions before you head over.
-                </p>
+                <span className="eyebrow">{content.cta.eyebrow}</span>
+                <h2>{content.cta.title}</h2>
+                <p>{content.cta.text}</p>
               </div>
 
               <div className="cta-side">
                 <a className="btn btn-primary btn-large" href={phoneLink}>
-                  Call the shop
+                  {content.cta.primaryButton}
                 </a>
                 <a className="btn btn-secondary" href={mapsLink} target="_blank" rel="noreferrer">
-                  Get directions
+                  {content.cta.secondaryButton}
                 </a>
                 <div className="chip-card">
-                  <span className="payment-label">Quick details</span>
+                  <span className="payment-label">{content.cta.detailsLabel}</span>
                   <div className="chip-grid">
-                    <span>Open daily</span>
-                    <span>8 AM - 11 PM</span>
-                    <span>224 E 116th St</span>
-                    <span>{phoneLabel}</span>
+                    {content.cta.detailChips.map((item) => (
+                      <span key={item}>{item}</span>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -348,14 +317,14 @@ function App() {
           <div className="footer-meta">
             <span>{shopAddress}</span>
             <span>{phoneLabel}</span>
-            <span>Open daily 8:00 AM - 11:00 PM</span>
+            <span>{content.footerHours}</span>
           </div>
         </div>
       </footer>
 
       <div className="mobile-bookbar">
         <a className="btn btn-primary" href={phoneLink}>
-          Call shop
+          {content.hero.primaryCta}
         </a>
       </div>
     </div>
