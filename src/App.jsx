@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getSiteContent } from "./siteContent";
 
 function App({ locale = "en" }) {
   const [openFaq, setOpenFaq] = useState(0);
+  const [showMobileBar, setShowMobileBar] = useState(
+    () => typeof window !== "undefined" && !("IntersectionObserver" in window),
+  );
   const year = new Date().getFullYear();
   const content = getSiteContent(locale);
   const phoneLink = "tel:+16464540300";
@@ -12,10 +15,36 @@ function App({ locale = "en" }) {
   const shopName = "MQ Barber Shop";
   const shopAddress = "224 E 116th St, New York, NY 10029";
   const languageSwitchHref = locale === "en" ? "/es/" : "/";
+  const heroActionsRef = useRef(null);
   const groupedServices = content.serviceGroups.map((group) => ({
     ...group,
     items: content.services.filter((service) => service.group === group.id),
   }));
+
+  useEffect(() => {
+    const target = heroActionsRef.current;
+
+    if (!target || typeof window === "undefined") {
+      return undefined;
+    }
+
+    if (!("IntersectionObserver" in window)) {
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setShowMobileBar(!entry.isIntersecting);
+      },
+      {
+        threshold: 0.2,
+      },
+    );
+
+    observer.observe(target);
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="barber-page">
@@ -73,7 +102,7 @@ function App({ locale = "en" }) {
               <h1>{content.hero.title}</h1>
               <p className="hero-text">{content.hero.text}</p>
 
-              <div className="hero-actions">
+              <div className="hero-actions" ref={heroActionsRef}>
                 <a className="btn btn-primary" href={phoneLink}>
                   {content.hero.primaryCta}
                 </a>
@@ -322,7 +351,7 @@ function App({ locale = "en" }) {
         </div>
       </footer>
 
-      <div className="mobile-bookbar">
+      <div className={`mobile-bookbar${showMobileBar ? " is-visible" : ""}`}>
         <a className="btn btn-primary" href={phoneLink}>
           {content.hero.primaryCta}
         </a>
