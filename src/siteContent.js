@@ -7,7 +7,7 @@ const photoAssets = {
 export const siteContent = {
   en: {
     brandTagline: "Barber shop in East Harlem",
-    headerMeta: ["East Harlem", "Open daily", "8 AM - 11 PM"],
+    headerMeta: ["East Harlem", "Open daily", "8 AM - 8 PM"],
     nav: [
       { href: "#photos", label: "Photos" },
       { href: "#services", label: "Services" },
@@ -45,16 +45,16 @@ export const siteContent = {
         {
           id: "night",
           kicker: "Open late",
-          title: "The night photo supports the daily 8 AM to 11 PM schedule.",
+          title: "The night photo supports the daily 8 AM to 8 PM schedule.",
           text:
-            "Showing the storefront after dark reinforces that MQ works for after-work visits and late-evening grooming.",
+            "Showing the storefront after dark reinforces that MQ works for after-work visits and evening grooming.",
           image: photoAssets.storefrontNight,
           alt: "MQ Barber Shop storefront at night with the shop interior visible",
         },
       ],
     },
     quickFacts: [
-      { value: "Open daily", label: "8:00 AM - 11:00 PM" },
+      { value: "Open daily", label: "8:00 AM - 8:00 PM" },
       { value: "East Harlem", label: "224 E 116th St" },
       { value: "Call the shop", label: "(646) 454-0300" },
       { value: "Current prices", label: "Based on the posted menu" },
@@ -78,7 +78,7 @@ export const siteContent = {
       {
         title: "Late hours are easy to believe",
         text:
-          "The night storefront shot makes the 8 AM to 11 PM schedule feel credible and useful for people planning an evening visit.",
+          "The night storefront shot makes the 8 AM to 8 PM schedule feel credible and useful for people planning an evening visit.",
       },
     ],
     servicesSection: {
@@ -223,18 +223,18 @@ export const siteContent = {
       },
       {
         title: "Plan around the hours",
-        subtitle: "Open daily, 8 AM - 11 PM",
+        subtitle: "Open daily, 8 AM - 8 PM",
         text: "The long daily schedule gives clients more flexibility for workday, school-day, or evening visits.",
       },
     ],
     hours: [
-      ["Monday", "8:00 AM - 11:00 PM"],
-      ["Tuesday", "8:00 AM - 11:00 PM"],
-      ["Wednesday", "8:00 AM - 11:00 PM"],
-      ["Thursday", "8:00 AM - 11:00 PM"],
-      ["Friday", "8:00 AM - 11:00 PM"],
-      ["Saturday", "8:00 AM - 11:00 PM"],
-      ["Sunday", "8:00 AM - 11:00 PM"],
+      ["Monday", "8:00 AM - 8:00 PM"],
+      ["Tuesday", "8:00 AM - 8:00 PM"],
+      ["Wednesday", "8:00 AM - 8:00 PM"],
+      ["Thursday", "8:00 AM - 8:00 PM"],
+      ["Friday", "8:00 AM - 8:00 PM"],
+      ["Saturday", "8:00 AM - 8:00 PM"],
+      ["Sunday", "8:00 AM - 8:00 PM"],
     ],
     faqSection: {
       eyebrow: "FAQ",
@@ -247,7 +247,7 @@ export const siteContent = {
       },
       {
         question: "What are the shop hours?",
-        answer: "The shop is open daily from 8:00 AM to 11:00 PM.",
+        answer: "The shop is open daily from 8:00 AM to 8:00 PM.",
       },
       {
         question: "What services are currently listed?",
@@ -278,13 +278,13 @@ export const siteContent = {
       primaryButton: "Call the shop",
       secondaryButton: "Get directions",
       detailsLabel: "Quick details",
-      detailChips: ["Open daily", "8 AM - 11 PM", "224 E 116th St", "(646) 454-0300"],
+      detailChips: ["Open daily", "8 AM - 8 PM", "224 E 116th St", "(646) 454-0300"],
     },
-    footerHours: "Open daily 8:00 AM - 11:00 PM",
+    footerHours: "Open daily 8:00 AM - 8:00 PM",
   },
   es: {
     brandTagline: "Barbería en East Harlem",
-    headerMeta: ["East Harlem", "Abierto diario", "8 AM - 11 PM"],
+    headerMeta: ["East Harlem", "Abierto diario", "8 AM - 8 PM"],
     nav: [
       { href: "#photos", label: "Fotos" },
       { href: "#services", label: "Servicios" },
@@ -322,7 +322,7 @@ export const siteContent = {
         {
           id: "night",
           kicker: "Abierto hasta tarde",
-          title: "La foto de noche respalda el horario diario de 8 AM a 11 PM.",
+          title: "La foto de noche respalda el horario diario de 8 AM a 8 PM.",
           text:
             "Mostrar el local de noche ayuda a que el horario extendido se sienta creíble para clientes que van después del trabajo o por la tarde.",
           image: photoAssets.storefrontNight,
@@ -331,7 +331,7 @@ export const siteContent = {
       ],
     },
     quickFacts: [
-      { value: "Abierto diario", label: "8:00 AM - 11:00 PM" },
+      { value: "Abierto diario", label: "8:00 AM - 8:00 PM" },
       { value: "East Harlem", label: "224 E 116th St" },
       { value: "Llama al local", label: "(646) 454-0300" },
       { value: "Precios actuales", label: "Basados en el menú publicado" },
@@ -355,7 +355,7 @@ export const siteContent = {
       {
         title: "El horario largo se siente real",
         text:
-          "La foto nocturna del local hace que el horario de 8 AM a 11 PM se vea creíble y útil para visitas después del trabajo.",
+          "La foto nocturna del local hace que el horario de 8 AM a 8 PM se vea creíble y útil para visitas después del trabajo.",
       },
     ],
     servicesSection: {
@@ -500,18 +500,18 @@ export const siteContent = {
       },
       {
         title: "Horario amplio",
-        subtitle: "Abierto diario, 8 AM - 11 PM",
+        subtitle: "Abierto diario, 8 AM - 8 PM",
         text: "El horario extendido da más flexibilidad para visitas antes del trabajo, después de clases o por la noche.",
       },
     ],
     hours: [
-      ["Lunes", "8:00 AM - 11:00 PM"],
-      ["Martes", "8:00 AM - 11:00 PM"],
-      ["Miércoles", "8:00 AM - 11:00 PM"],
-      ["Jueves", "8:00 AM - 11:00 PM"],
-      ["Viernes", "8:00 AM - 11:00 PM"],
-      ["Sábado", "8:00 AM - 11:00 PM"],
-      ["Domingo", "8:00 AM - 11:00 PM"],
+      ["Lunes", "8:00 AM - 8:00 PM"],
+      ["Martes", "8:00 AM - 8:00 PM"],
+      ["Miércoles", "8:00 AM - 8:00 PM"],
+      ["Jueves", "8:00 AM - 8:00 PM"],
+      ["Viernes", "8:00 AM - 8:00 PM"],
+      ["Sábado", "8:00 AM - 8:00 PM"],
+      ["Domingo", "8:00 AM - 8:00 PM"],
     ],
     faqSection: {
       eyebrow: "Preguntas frecuentes",
@@ -524,7 +524,7 @@ export const siteContent = {
       },
       {
         question: "¿Cuál es el horario?",
-        answer: "La barbería abre todos los días de 8:00 AM a 11:00 PM.",
+        answer: "La barbería abre todos los días de 8:00 AM a 8:00 PM.",
       },
       {
         question: "¿Qué servicios aparecen actualmente?",
@@ -555,9 +555,9 @@ export const siteContent = {
       primaryButton: "Llamar al local",
       secondaryButton: "Cómo llegar",
       detailsLabel: "Datos rápidos",
-      detailChips: ["Abierto diario", "8 AM - 11 PM", "224 E 116th St", "(646) 454-0300"],
+      detailChips: ["Abierto diario", "8 AM - 8 PM", "224 E 116th St", "(646) 454-0300"],
     },
-    footerHours: "Abierto diario 8:00 AM - 11:00 PM",
+    footerHours: "Abierto diario 8:00 AM - 8:00 PM",
   },
 };
 
