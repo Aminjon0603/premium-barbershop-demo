@@ -19,7 +19,7 @@ export const siteContent = {
       eyebrow: "MQ Barber Shop",
       title: "A real neighborhood barbershop with clear services and long daily hours.",
       text:
-        "MQ Barber Shop at 224 E 116th St stays easy to understand from the first screen: real storefront photos, real pricing, and the phone number clients need before they stop in.",
+        "MQ Barber Shop in East Harlem stays easy to understand from the first screen: real storefront photos, real pricing, and the phone number clients need before they stop in.",
       primaryCta: "Call now",
       secondaryCta: "Get directions",
     },
@@ -28,9 +28,9 @@ export const siteContent = {
         kicker: "Street view",
         title: "Clients can recognize the shop before they even reach the door.",
         text:
-          "The daytime storefront photo makes the website feel grounded and helps first-time visitors know exactly what they are looking for on East 116th Street.",
+          "The daytime storefront photo makes the website feel grounded and helps first-time visitors know exactly what they are looking for.",
         image: photoAssets.storefrontDay,
-        alt: "MQ Barber Shop storefront during the day on East 116th Street",
+        alt: "MQ Barber Shop storefront during the day",
       },
       supporting: [
         {
@@ -55,7 +55,7 @@ export const siteContent = {
     },
     quickFacts: [
       { value: "Open daily", label: "8:00 AM - 8:00 PM" },
-      { value: "East Harlem", label: "224 E 116th St" },
+      { value: "East Harlem", label: "New York, NY" },
       { value: "Call the shop", label: "(646) 454-0300" },
       { value: "Current prices", label: "Based on the posted menu" },
     ],
@@ -204,7 +204,7 @@ export const siteContent = {
       leftText:
         "The site keeps the practical details visible so people can call the shop, check the address, and plan around the daily hours without digging through the page.",
       rightEyebrow: "Visit MQ Barber Shop",
-      rightTitle: "224 E 116th St, New York, NY 10029",
+      rightTitle: "East Harlem, New York, NY",
       rightText:
         "Call before you come in if you want to confirm availability, ask about a specific service, or check the latest pricing on color and chemical work.",
       callButton: "Call (646) 454-0300",
@@ -218,8 +218,8 @@ export const siteContent = {
       },
       {
         title: "Find the location",
-        subtitle: "224 E 116th St",
-        text: "The shop is in East Harlem, New York, NY 10029, and the storefront photos help new clients recognize it immediately.",
+        subtitle: "East Harlem",
+        text: "The shop is in East Harlem, New York, and the storefront photos help new clients recognize it immediately.",
       },
       {
         title: "Plan around the hours",
@@ -243,7 +243,7 @@ export const siteContent = {
     faqs: [
       {
         question: "Where is MQ Barber Shop located?",
-        answer: "MQ Barber Shop is located at 224 E 116th St, New York, NY 10029 in East Harlem.",
+        answer: "MQ Barber Shop is in East Harlem, New York.",
       },
       {
         question: "What are the shop hours?",
@@ -278,7 +278,7 @@ export const siteContent = {
       primaryButton: "Call the shop",
       secondaryButton: "Get directions",
       detailsLabel: "Quick details",
-      detailChips: ["Open daily", "8 AM - 8 PM", "224 E 116th St", "(646) 454-0300"],
+      detailChips: ["Open daily", "8 AM - 8 PM", "East Harlem", "(646) 454-0300"],
     },
     footerHours: "Open daily 8:00 AM - 8:00 PM",
   },
@@ -296,7 +296,7 @@ export const siteContent = {
       eyebrow: "MQ Barber Shop",
       title: "Una barbería real del vecindario con servicios claros y horario amplio todos los días.",
       text:
-        "MQ Barber Shop en 224 E 116th St se entiende desde la primera pantalla: fotos reales del local, precios reales y el número que los clientes necesitan antes de pasar.",
+        "MQ Barber Shop en East Harlem se entiende desde la primera pantalla: fotos reales del local, precios reales y el número que los clientes necesitan antes de pasar.",
       primaryCta: "Llamar",
       secondaryCta: "Cómo llegar",
     },
@@ -305,9 +305,9 @@ export const siteContent = {
         kicker: "Vista de la calle",
         title: "Los clientes pueden reconocer el local antes de llegar a la puerta.",
         text:
-          "La foto del frente durante el día hace que la página se sienta real y ayuda a los visitantes nuevos a ubicar el negocio fácilmente en East 116th Street.",
+          "La foto del frente durante el día hace que la página se sienta real y ayuda a los visitantes nuevos a ubicar el negocio fácilmente.",
         image: photoAssets.storefrontDay,
-        alt: "Fachada de MQ Barber Shop durante el día en East 116th Street",
+        alt: "Fachada de MQ Barber Shop durante el día",
       },
       supporting: [
         {
@@ -332,7 +332,7 @@ export const siteContent = {
     },
     quickFacts: [
       { value: "Abierto diario", label: "8:00 AM - 8:00 PM" },
-      { value: "East Harlem", label: "224 E 116th St" },
+      { value: "East Harlem", label: "New York, NY" },
       { value: "Llama al local", label: "(646) 454-0300" },
       { value: "Precios actuales", label: "Basados en el menú publicado" },
     ],
@@ -481,7 +481,7 @@ export const siteContent = {
       leftText:
         "La página mantiene los datos prácticos al frente para que la gente pueda llamar, revisar la dirección y planear la visita sin perder tiempo buscando.",
       rightEyebrow: "Visita MQ Barber Shop",
-      rightTitle: "224 E 116th St, New York, NY 10029",
+      rightTitle: "East Harlem, New York, NY",
       rightText:
         "Llama antes de venir si quieres confirmar disponibilidad, preguntar por un servicio específico o revisar el precio más reciente de color o químicos.",
       callButton: "Llamar al (646) 454-0300",
@@ -495,8 +495,8 @@ export const siteContent = {
       },
       {
         title: "Ubicación clara",
-        subtitle: "224 E 116th St",
-        text: "El local está en East Harlem, New York, NY 10029, y las fotos ayudan a reconocerlo de inmediato.",
+        subtitle: "East Harlem",
+        text: "El local está en East Harlem, New York, y las fotos ayudan a reconocerlo de inmediato.",
       },
       {
         title: "Horario amplio",
@@ -520,7 +520,7 @@ export const siteContent = {
     faqs: [
       {
         question: "¿Dónde está MQ Barber Shop?",
-        answer: "MQ Barber Shop está en 224 E 116th St, New York, NY 10029, en East Harlem.",
+        answer: "MQ Barber Shop está en East Harlem, New York.",
       },
       {
         question: "¿Cuál es el horario?",
@@ -555,7 +555,7 @@ export const siteContent = {
       primaryButton: "Llamar al local",
       secondaryButton: "Cómo llegar",
       detailsLabel: "Datos rápidos",
-      detailChips: ["Abierto diario", "8 AM - 8 PM", "224 E 116th St", "(646) 454-0300"],
+      detailChips: ["Abierto diario", "8 AM - 8 PM", "East Harlem", "(646) 454-0300"],
     },
     footerHours: "Abierto diario 8:00 AM - 8:00 PM",
   },

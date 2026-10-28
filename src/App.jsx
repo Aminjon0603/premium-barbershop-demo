@@ -10,10 +10,10 @@ function App({ locale = "en" }) {
   const content = getSiteContent(locale);
   const phoneLink = "tel:+16464540300";
   const mapsLink =
-    "https://www.google.com/maps/search/?api=1&query=224+E+116th+St,+New+York,+NY+10029";
+    "https://www.google.com/maps/search/?api=1&query=East+Harlem,+New+York,+NY";
   const phoneLabel = "(646) 454-0300";
   const shopName = "MQ Barber Shop";
-  const shopAddress = "224 E 116th St, New York, NY 10029";
+  const shopAddress = "East Harlem, New York, NY";
   const languageSwitchHref = locale === "en" ? "/es/" : "/";
   const heroActionsRef = useRef(null);
   const groupedServices = content.serviceGroups.map((group) => ({
